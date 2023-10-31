@@ -1,15 +1,14 @@
 import os
 
-cores = ['blue', 'red', 'yellow']
-
-
-if 'yellow' in cores:
-    print("Existe a cor amarela")
-else:
-    print("Não Existe a cor amarela")
 
 numero = []
 nomes = []
+
+
+
+
+
+
 def cadastro(num, nome):    
     numero.append(num)
     nomes.append(nome)
@@ -23,13 +22,26 @@ def pesquisar():
         print(nomes[cont])                  
         cont += 1
 
-def atualizar():
-    return 0
-def deletar(num):
+def atualizar(num):
+    novonumero = int(input("Digite o novo número"))
+    novonome = "Israel"
     if num in numero:
-        print("O numero que deseja excluir é ", num)
+        posicao = numero.index(num)
+        numero[posicao] = novonumero
+        nomes[posicao] = novonome
+        return "Chapa atualizada com sucesso"
+
+
+    return 0
+def deletar(num):       
+    if num in numero:       
+       posicao = numero.index(num)       
+       numero.pop(posicao)
+       nomes.pop(posicao)
+       return "A chapa de número", num, " ", "foi removida com sucess"
     else:
-        print("Não tem o valor")
+        return  ("Não existe esta chapa com esse número" , num)
+    
 def msn():
     print("Opção inválida")
 def limpar():
@@ -52,7 +64,12 @@ while op != 0:
         print(cadastro(num, nome)) 
     elif op == 2:        
         pesquisar()
+    elif op == 3:
+        valor = int(input("Digite o número da chapa para atualizar"))        
+        retorno = atualizar(valor)   
+        print(retorno)    
     elif op == 4:
-        op = int(input("Digite o número da chapa para deletar"))        
-        deletar(op)       
+        valor = int(input("Digite o número da chapa para deletar"))        
+        retorno = deletar(valor)   
+        print(retorno)    
  
