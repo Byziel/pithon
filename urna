@@ -1,3 +1,4 @@
+
 import os
 
 
@@ -24,7 +25,7 @@ def pesquisar():
 
 def atualizar(num):
     novonumero = int(input("Digite o novo número"))
-    novonome = "Israel"
+    novonome = input("Digite novo nome")
     if num in numero:
         posicao = numero.index(num)
         numero[posicao] = novonumero
